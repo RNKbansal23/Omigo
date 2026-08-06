@@ -1,0 +1,52 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 600">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#2a1f26" />
+      <stop offset="100%" stop-color="#140a12" />
+    </linearGradient>
+    <linearGradient id="rose1" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#ff4b72" />
+      <stop offset="100%" stop-color="#c9184a" />
+    </linearGradient>
+    <linearGradient id="rose2" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#ff758f" />
+      <stop offset="100%" stop-color="#a4133c" />
+    </linearGradient>
+  </defs>
+  <rect width="600" height="600" fill="url(#bg)" />
+  
+  <!-- Stems -->
+  <path d="M300,300 C280,400 320,450 300,550" stroke="#2d6a4f" stroke-width="8" fill="none" />
+  <path d="M250,280 C240,400 290,450 280,540" stroke="#1b4332" stroke-width="8" fill="none" />
+  <path d="M350,280 C360,400 310,450 320,540" stroke="#40916c" stroke-width="8" fill="none" />
+  
+  <!-- Wrapper -->
+  <path d="M220,380 L380,380 L340,560 L260,560 Z" fill="#e5e5e5" opacity="0.9" />
+  <path d="M200,350 L400,350 L380,400 L220,400 Z" fill="#cfcfcf" />
+  
+  <!-- Ribbon -->
+  <path d="M260,450 L340,450 L360,470 L240,470 Z" fill="#c9184a" />
+  <path d="M300,460 C260,500 240,550 240,550 C260,530 290,480 300,460 Z" fill="#a4133c" />
+  <path d="M300,460 C340,500 360,550 360,550 C340,530 310,480 300,460 Z" fill="#a4133c" />
+
+  <!-- Roses -->
+  <!-- Center -->
+  <circle cx="300" cy="250" r="45" fill="url(#rose1)" />
+  <path d="M280,230 Q300,210 320,230 Q310,260 280,260 Z" fill="#590d22" opacity="0.5" />
+  
+  <!-- Left -->
+  <circle cx="230" cy="280" r="40" fill="url(#rose2)" />
+  <path d="M215,265 Q230,250 245,265 Q235,285 215,285 Z" fill="#590d22" opacity="0.5" />
+  
+  <!-- Right -->
+  <circle cx="370" cy="280" r="40" fill="url(#rose2)" />
+  <path d="M355,265 Q370,250 385,265 Q375,285 355,285 Z" fill="#590d22" opacity="0.5" />
+  
+  <!-- Top -->
+  <circle cx="300" cy="180" r="35" fill="url(#rose2)" />
+  <path d="M285,165 Q300,150 315,165 Q305,185 285,185 Z" fill="#590d22" opacity="0.5" />
+  
+  <!-- Leaves -->
+  <path d="M200,320 Q160,300 180,280 Q200,300 210,310 Z" fill="#2d6a4f" />
+  <path d="M400,320 Q440,300 420,280 Q400,300 390,310 Z" fill="#2d6a4f" />
+</svg>

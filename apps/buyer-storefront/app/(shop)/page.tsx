@@ -1,0 +1,374 @@
+'use client';
+
+import React, { useState, useEffect } from 'react';
+import Link from 'next/link';
+import {
+  ArrowRight,
+  Gift,
+  Heart,
+  Cake,
+  PartyPopper,
+  Crown,
+  Building2,
+  Palette,
+  Truck,
+  Package,
+  RotateCcw,
+  Star,
+  Sparkles,
+  Clock,
+  Zap,
+} from 'lucide-react';
+import ProductCard from '@/components/shop/ProductCard';
+import Button from '@/components/shop/Button';
+
+const categories = [
+  { name: 'Birthday', icon: Cake, color: 'from-pink-500/20 to-pink-600/5', iconColor: 'text-pink-400' },
+  { name: 'Anniversary', icon: Heart, color: 'from-red-500/20 to-red-600/5', iconColor: 'text-red-400' },
+  { name: 'Wedding', icon: Crown, color: 'from-amber-500/20 to-amber-600/5', iconColor: 'text-amber-400' },
+  { name: 'Festival', icon: PartyPopper, color: 'from-purple-500/20 to-purple-600/5', iconColor: 'text-purple-400' },
+  { name: 'Corporate', icon: Building2, color: 'from-blue-500/20 to-blue-600/5', iconColor: 'text-blue-400' },
+  { name: 'Custom', icon: Palette, color: 'from-emerald-500/20 to-emerald-600/5', iconColor: 'text-emerald-400' },
+];
+
+const trendingProducts = [
+  { id: '1', name: 'Premium Chocolate Box', price: 1299, image: '/products/chocolate-box.png', rating: 4.8, description: 'Handcrafted Belgian chocolates in an elegant gift box' },
+  { id: '2', name: 'Rose Gold Watch', price: 4999, image: '/products/watch.png', rating: 4.6, description: 'Luxurious timepiece with genuine leather strap' },
+  { id: '3', name: 'Aromatherapy Candle Set', price: 899, image: '/products/candles.png', rating: 4.9, description: 'Set of 6 premium scented soy candles' },
+  { id: '4', name: 'Silk Flower Bouquet', price: 1999, image: '/products/bouquet.png', rating: 4.7, description: 'Everlasting silk roses in a luxury box' },
+  { id: '5', name: 'Personalized Photo Frame', price: 799, image: '/products/frame.png', rating: 4.5, description: 'Custom engraved wooden photo frame' },
+  { id: '6', name: 'Gourmet Tea Collection', price: 1499, image: '/products/tea.png', rating: 4.8, description: 'Curated selection of 12 exotic teas' },
+  { id: '7', name: 'Crystal Perfume Bottle', price: 3499, image: '/products/perfume.png', rating: 4.4, description: 'Luxury fragrance in a hand-blown crystal bottle' },
+  { id: '8', name: 'Leather Journal Set', price: 699, image: '/products/journal.png', rating: 4.6, description: 'Premium leather journal with brass pen' },
+];
+
+const features = [
+  {
+    icon: Truck,
+    title: 'Express Delivery',
+    description: 'Same-day delivery available in 100+ cities across India',
+    accent: 'from-blue-500 to-cyan-400',
+  },
+  {
+    icon: Package,
+    title: 'Premium Wrapping',
+    description: 'Every gift is wrapped with love using premium materials',
+    accent: 'from-[#f5a623] to-[#ffd073]',
+  },
+  {
+    icon: RotateCcw,
+    title: 'Easy Returns',
+    description: '30-day hassle-free return policy with full refund',
+    accent: 'from-emerald-500 to-green-400',
+  },
+];
+
+function useCountdown() {
+  const DEADLINE_KEY = 'giftflow_promo_deadline';
+
+  const getDeadline = () => {
+    if (typeof window === 'undefined') return Date.now() + 12 * 24 * 60 * 60 * 1000;
+    const stored = localStorage.getItem(DEADLINE_KEY);
+    if (stored) return parseInt(stored, 10);
+    const deadline = Date.now() + 12 * 24 * 60 * 60 * 1000;
+    localStorage.setItem(DEADLINE_KEY, String(deadline));
+    return deadline;
+  };
+
+  const calcTime = (deadline: number) => {
+    const diff = Math.max(0, deadline - Date.now());
+    return {
+      days: Math.floor(diff / (1000 * 60 * 60 * 24)),
+      hrs: Math.floor((diff / (1000 * 60 * 60)) % 24),
+      min: Math.floor((diff / (1000 * 60)) % 60),
+      sec: Math.floor((diff / 1000) % 60),
+    };
+  };
+
+  const [time, setTime] = useState({ days: 12, hrs: 0, min: 0, sec: 0 });
+
+  useEffect(() => {
+    const deadline = getDeadline();
+    setTime(calcTime(deadline));
+    const id = setInterval(() => setTime(calcTime(deadline)), 1000);
+    return () => clearInterval(id);
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
+  return time;
+}
+
+export default function HomePage() {
+  const countdown = useCountdown();
+
+  const timerBlocks = [
+    { value: countdown.days, label: 'Days' },
+    { value: countdown.hrs,  label: 'Hrs'  },
+    { value: countdown.min,  label: 'Min'  },
+    { value: countdown.sec,  label: 'Sec'  },
+  ];
+
+  return (
+    <div className="overflow-hidden">
+      {/* ===== HERO SECTION ===== */}
+      <section className="relative min-h-[85vh] flex items-center gradient-hero overflow-hidden">
+        {/* Decorative Elements */}
+        <div className="absolute inset-0 overflow-hidden pointer-events-none">
+          <div className="absolute top-20 left-10 w-72 h-72 bg-[#7c3aed]/10 rounded-full blur-3xl animate-float" />
+          <div className="absolute bottom-20 right-10 w-96 h-96 bg-[#f5a623]/5 rounded-full blur-3xl animate-float delay-200" />
+          <div className="absolute top-40 right-20 w-48 h-48 bg-[#ec4899]/5 rounded-full blur-3xl animate-float delay-400" />
+          
+          {/* Floating SVG icons scattered */}
+          <div className="absolute top-[15%] left-[10%] animate-float-slow delay-100 opacity-40 z-10">
+            <Gift size={60} className="text-[#f5a623]" style={{ filter: 'drop-shadow(0 10px 15px rgba(245,166,35,0.3))' }} />
+          </div>
+          <div className="absolute top-[30%] right-[15%] animate-float delay-300 opacity-30 z-10">
+            <Sparkles size={50} className="text-[#7c3aed]" style={{ filter: 'drop-shadow(0 10px 15px rgba(124,58,237,0.3))' }} />
+          </div>
+          <div className="absolute bottom-[20%] left-[20%] animate-float-reverse delay-500 opacity-30 z-10">
+            <Star size={45} className="text-[#ec4899]" style={{ filter: 'drop-shadow(0 10px 15px rgba(236,72,153,0.3))' }} />
+          </div>
+          <div className="absolute top-[10%] right-[30%] animate-float-reverse delay-700 opacity-20 z-10">
+            <Gift size={35} className="text-[#f5a623]" style={{ filter: 'drop-shadow(0 10px 15px rgba(245,166,35,0.3))' }} />
+          </div>
+          <div className="absolute bottom-[10%] left-[40%] animate-float delay-200 opacity-20 z-10">
+            <Sparkles size={30} className="text-[#7c3aed]" style={{ filter: 'drop-shadow(0 10px 15px rgba(124,58,237,0.3))' }} />
+          </div>
+          <div className="absolute top-[40%] left-[5%] animate-float-slow delay-400 opacity-15 z-10">
+            <Star size={25} className="text-[#ec4899]" style={{ filter: 'drop-shadow(0 10px 15px rgba(236,72,153,0.3))' }} />
+          </div>
+        </div>
+
+        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
+          <div className="max-w-3xl">
+            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[#f5a623]/10 border border-[#f5a623]/20 text-[#f5a623] text-sm font-medium mb-6 animate-fade-in">
+              <Sparkles size={14} />
+              <span>Premium Gifting Experience</span>
+            </div>
+
+            <h1 className="text-4xl sm:text-5xl md:text-7xl font-bold mb-6 leading-tight animate-slide-up">
+              Send Joy,
+              <br />
+              <span className="gradient-text">Deliver Happiness</span>
+            </h1>
+
+            <p className="text-lg sm:text-xl text-[#a89bb5] mb-8 max-w-xl leading-relaxed animate-slide-up delay-200">
+              Discover curated gifts for every occasion. From personalized treasures 
+              to premium hampers — make every moment unforgettable.
+            </p>
+
+            <div className="flex flex-col sm:flex-row items-start sm:items-center gap-4 animate-slide-up delay-300">
+              <Link href="/products">
+                <Button variant="primary" size="lg">
+                  <span>Explore Gifts</span>
+                  <ArrowRight size={18} />
+                </Button>
+              </Link>
+              <Link href="/about">
+                <Button variant="ghost" size="lg">
+                  Learn More
+                </Button>
+              </Link>
+            </div>
+
+            {/* Social proof */}
+            <div className="flex items-center gap-6 mt-10 animate-fade-in delay-500">
+              <div className="flex -space-x-2">
+                {[1, 2, 3, 4].map((i) => (
+                  <div
+                    key={i}
+                    className="w-9 h-9 rounded-full border-2 border-[#1a1025] bg-gradient-to-br from-[#7c3aed] to-[#ec4899]"
+                  />
+                ))}
+              </div>
+              <div>
+                <div className="flex items-center gap-1">
+                  {Array.from({ length: 5 }).map((_, i) => (
+                    <Star key={i} size={14} className="fill-[#f5a623] text-[#f5a623]" />
+                  ))}
+                </div>
+                <p className="text-[#6b5f7a] text-xs mt-0.5">
+                  Loved by 50,000+ happy customers
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ===== CATEGORIES SECTION ===== */}
+      <section className="py-16 md:py-24 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
+        <div className="text-center mb-12">
+          <h2 className="text-3xl md:text-4xl font-bold mb-3">
+            Shop by <span className="gradient-text">Occasion</span>
+          </h2>
+          <p className="text-[#a89bb5] text-base max-w-md mx-auto">
+            Find the perfect gift for every special moment in life
+          </p>
+        </div>
+
+        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-4">
+          {categories.map((cat, index) => {
+            const Icon = cat.icon;
+            return (
+              <Link
+                key={cat.name}
+                href={`/products?category=${cat.name.toLowerCase()}`}
+                className="group"
+              >
+                <div
+                  className="glass-card p-6 text-center hover-lift cursor-pointer animate-fade-in"
+                  style={{ animationDelay: `${index * 80}ms` }}
+                >
+                  <div
+                    className={`w-14 h-14 mx-auto mb-3 rounded-2xl bg-gradient-to-br ${cat.color} flex items-center justify-center group-hover:scale-110 transition-transform duration-300`}
+                  >
+                    <Icon size={24} className={cat.iconColor} />
+                  </div>
+                  <h3 className="text-white text-sm font-semibold group-hover:text-[#f5a623] transition-colors">
+                    {cat.name}
+                  </h3>
+                </div>
+              </Link>
+            );
+          })}
+        </div>
+      </section>
+
+      {/* ===== TRENDING PRODUCTS ===== */}
+      <section className="py-16 md:py-24 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
+        <div className="flex items-end justify-between mb-10">
+          <div>
+            <h2 className="text-3xl md:text-4xl font-bold mb-2">
+              Trending <span className="gradient-text">Gifts</span>
+            </h2>
+            <p className="text-[#a89bb5] text-base">
+              Most loved gifts this season
+            </p>
+          </div>
+          <Link
+            href="/products"
+            className="hidden sm:flex items-center gap-1.5 text-[#f5a623] text-sm font-medium hover:gap-3 transition-all duration-300"
+          >
+            View All <ArrowRight size={16} />
+          </Link>
+        </div>
+
+        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 md:gap-6">
+          {trendingProducts.map((product) => (
+            <ProductCard key={product.id} {...product} />
+          ))}
+        </div>
+
+        <div className="mt-8 text-center sm:hidden">
+          <Link href="/products">
+            <Button variant="outline" size="md">
+              View All Products <ArrowRight size={16} />
+            </Button>
+          </Link>
+        </div>
+      </section>
+
+      {/* ===== PROMO BANNER ===== */}
+      <section className="py-8 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
+        <div className="relative overflow-hidden rounded-3xl bg-gradient-to-r from-[#7c3aed] via-[#9333ea] to-[#c026d3] p-8 md:p-12">
+          <div className="absolute inset-0 overflow-hidden pointer-events-none">
+            <div className="absolute -top-20 -right-20 w-60 h-60 bg-white/5 rounded-full" />
+            <div className="absolute -bottom-10 -left-10 w-40 h-40 bg-white/5 rounded-full" />
+          </div>
+
+          <div className="relative flex flex-col md:flex-row items-center justify-between gap-6">
+            <div className="text-center md:text-left">
+              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/10 text-white text-xs font-semibold mb-3">
+                <Zap size={12} />
+                LIMITED TIME OFFER
+              </div>
+              <h3 className="text-2xl md:text-3xl font-bold text-white mb-2">
+                Get 20% Off Your First Order
+              </h3>
+              <p className="text-white/70 text-sm md:text-base">
+                Use code <span className="font-bold text-white bg-white/10 px-2 py-0.5 rounded">GIFT20</span> at checkout
+              </p>
+            </div>
+
+            <div className="flex items-center gap-4">
+              <div className="flex gap-2">
+                {timerBlocks.map(({ value, label }) => (
+                  <div key={label} className="flex flex-col items-center">
+                    <div className="w-14 h-14 rounded-xl bg-white/10 flex items-center justify-center text-white text-xl font-bold backdrop-blur-sm tabular-nums transition-all duration-300">
+                      {String(value).padStart(2, '0')}
+                    </div>
+                    <span className="text-white/50 text-[10px] mt-1">{label}</span>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ===== WHY CHOOSE US ===== */}
+      <section className="py-16 md:py-24 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
+        <div className="text-center mb-12">
+          <h2 className="text-3xl md:text-4xl font-bold mb-3">
+            Why Choose <span className="gradient-text">GiftFlow</span>
+          </h2>
+          <p className="text-[#a89bb5] text-base max-w-md mx-auto">
+            We go the extra mile to make your gifting experience seamless
+          </p>
+        </div>
+
+        <div className="grid md:grid-cols-3 gap-6">
+          {features.map((feature, index) => {
+            const Icon = feature.icon;
+            return (
+              <div
+                key={feature.title}
+                className="glass-card p-8 text-center hover-lift animate-fade-in"
+                style={{ animationDelay: `${index * 150}ms` }}
+              >
+                <div
+                  className={`w-16 h-16 mx-auto mb-5 rounded-2xl bg-gradient-to-br ${feature.accent} flex items-center justify-center opacity-90`}
+                >
+                  <Icon size={28} className="text-white" />
+                </div>
+                <h3 className="text-white font-bold text-lg mb-2">
+                  {feature.title}
+                </h3>
+                <p className="text-[#a89bb5] text-sm leading-relaxed">
+                  {feature.description}
+                </p>
+              </div>
+            );
+          })}
+        </div>
+      </section>
+
+      {/* ===== NEWSLETTER ===== */}
+      <section className="py-16 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
+        <div className="glass-card p-8 md:p-12 text-center">
+          <div className="flex items-center justify-center gap-1 mb-4">
+            <Clock size={16} className="text-[#f5a623]" />
+            <span className="text-[#f5a623] text-sm font-medium">Stay Updated</span>
+          </div>
+          <h3 className="text-2xl md:text-3xl font-bold mb-2">
+            Never Miss a <span className="gradient-text">Perfect Gift</span>
+          </h3>
+          <p className="text-[#a89bb5] text-sm mb-6 max-w-md mx-auto">
+            Subscribe to get exclusive offers, new arrivals, and gifting inspiration
+          </p>
+          <div className="flex flex-col sm:flex-row items-center gap-3 max-w-md mx-auto">
+            <input
+              type="email"
+              placeholder="Enter your email"
+              className="w-full px-5 py-3 rounded-xl glass-input text-sm"
+            />
+            <Button variant="primary" size="md" className="w-full sm:w-auto whitespace-nowrap">
+              Subscribe
+            </Button>
+          </div>
+        </div>
+      </section>
+    </div>
+  );
+}

@@ -1,0 +1,46 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 600">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#261b17" />
+      <stop offset="100%" stop-color="#0f0b09" />
+    </linearGradient>
+    <linearGradient id="leather" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#5c3a21" />
+      <stop offset="100%" stop-color="#3a2518" />
+    </linearGradient>
+    <linearGradient id="pages" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#fdfbf7" />
+      <stop offset="50%" stop-color="#f0e6d2" />
+      <stop offset="100%" stop-color="#e3d5b8" />
+    </linearGradient>
+  </defs>
+  <rect width="600" height="600" fill="url(#bg)" />
+  
+  <!-- Shadow -->
+  <rect x="180" y="160" width="260" height="340" rx="15" fill="#000" opacity="0.4" />
+  
+  <!-- Pages edge -->
+  <rect x="195" y="145" width="250" height="340" rx="5" fill="url(#pages)" />
+  <line x1="205" y1="145" x2="205" y2="485" stroke="#d4c5a9" stroke-width="1" opacity="0.5" />
+  <line x1="215" y1="145" x2="215" y2="485" stroke="#d4c5a9" stroke-width="1" opacity="0.5" />
+  <line x1="225" y1="145" x2="225" y2="485" stroke="#d4c5a9" stroke-width="1" opacity="0.5" />
+  <line x1="235" y1="145" x2="235" y2="485" stroke="#d4c5a9" stroke-width="1" opacity="0.5" />
+  
+  <!-- Leather Cover -->
+  <rect x="170" y="140" width="250" height="350" rx="15" fill="url(#leather)" />
+  <rect x="170" y="140" width="40" height="350" fill="#2d1c12" />
+  
+  <!-- Stitching -->
+  <line x1="185" y1="150" x2="185" y2="480" stroke="#f5a623" stroke-width="2" stroke-dasharray="6,4" opacity="0.7" />
+  <line x1="405" y1="150" x2="405" y2="480" stroke="#f5a623" stroke-width="2" stroke-dasharray="6,4" opacity="0.7" />
+  <line x1="185" y1="150" x2="405" y2="150" stroke="#f5a623" stroke-width="2" stroke-dasharray="6,4" opacity="0.7" />
+  <line x1="185" y1="480" x2="405" y2="480" stroke="#f5a623" stroke-width="2" stroke-dasharray="6,4" opacity="0.7" />
+  
+  <!-- Bookmark Ribbon -->
+  <path d="M280,490 L280,550 L295,530 L310,550 L310,490 Z" fill="#9d0208" />
+  
+  <!-- Pen -->
+  <rect x="440" y="200" width="15" height="220" rx="7" fill="#1a1a1a" />
+  <rect x="440" y="200" width="15" height="40" rx="7" fill="#f5a623" />
+  <polygon points="440,420 455,420 447,440" fill="#f5a623" />
+</svg>

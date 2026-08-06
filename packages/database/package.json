@@ -1,0 +1,16 @@
+{
+  "name": "@marketplace/database",
+  "version": "1.0.0",
+  "main": "./src/index.js",
+  "scripts": {
+    "generate": "prisma generate",
+    "push": "prisma db push",
+    "studio": "prisma studio"
+  },
+  "dependencies": {
+    "@prisma/client": "^6.9.0"
+  },
+  "devDependencies": {
+    "prisma": "^6.9.0"
+  }
+}

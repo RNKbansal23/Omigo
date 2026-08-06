@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 600">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#1b2a21" />
+      <stop offset="100%" stop-color="#0b130e" />
+    </linearGradient>
+    <linearGradient id="tea-box" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#606c38" />
+      <stop offset="100%" stop-color="#283618" />
+    </linearGradient>
+    <linearGradient id="gold" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#f5a623" />
+      <stop offset="100%" stop-color="#ffd073" />
+    </linearGradient>
+  </defs>
+  <rect width="600" height="600" fill="url(#bg)" />
+  
+  <!-- Tea Box Base -->
+  <rect x="150" y="250" width="300" height="150" rx="10" fill="url(#tea-box)" />
+  <rect x="150" y="230" width="300" height="20" fill="#283618" />
+  
+  <!-- Lid (Open) -->
+  <path d="M150,230 L250,80 L550,80 L450,230 Z" fill="url(#tea-box)" opacity="0.9" />
+  <path d="M150,230 L250,80 L550,80 L450,230 Z" fill="#ffffff" opacity="0.05" />
+  
+  <!-- Tea Tins inside -->
+  <circle cx="210" cy="300" r="40" fill="#e9edc9" />
+  <circle cx="210" cy="300" r="30" fill="url(#gold)" />
+  
+  <circle cx="300" cy="300" r="40" fill="#fefae0" />
+  <circle cx="300" cy="300" r="30" fill="url(#gold)" />
+  
+  <circle cx="390" cy="300" r="40" fill="#dda15e" />
+  <circle cx="390" cy="300" r="30" fill="url(#gold)" />
+  
+  <!-- Leaves floating -->
+  <path d="M420,150 Q450,130 460,160 Q430,170 420,150 Z" fill="#606c38" opacity="0.8" />
+  <path d="M350,120 Q380,100 390,130 Q360,140 350,120 Z" fill="#283618" opacity="0.8" />
+  <path d="M280,160 Q300,130 320,150 Q310,180 280,160 Z" fill="#606c38" opacity="0.6" />
+</svg>

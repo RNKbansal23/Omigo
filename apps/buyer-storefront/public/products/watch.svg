@@ -1,0 +1,42 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 600">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#1e1826" />
+      <stop offset="100%" stop-color="#0d0a12" />
+    </linearGradient>
+    <linearGradient id="rose-gold" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#f2c4b3" />
+      <stop offset="50%" stop-color="#d99b82" />
+      <stop offset="100%" stop-color="#b67258" />
+    </linearGradient>
+    <linearGradient id="dial" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#333" />
+      <stop offset="100%" stop-color="#111" />
+    </linearGradient>
+  </defs>
+  <rect width="600" height="600" fill="url(#bg)" />
+  
+  <!-- Strap -->
+  <rect x="260" y="100" width="80" height="400" rx="10" fill="#4a2e2b" />
+  <rect x="270" y="110" width="60" height="380" fill="#3a221f" />
+  
+  <!-- Watch Body -->
+  <circle cx="300" cy="300" r="100" fill="url(#rose-gold)" />
+  <circle cx="300" cy="300" r="85" fill="url(#dial)" />
+  
+  <!-- Crown -->
+  <rect x="395" y="290" width="15" height="20" rx="3" fill="url(#rose-gold)" />
+  
+  <!-- Hands & Markers -->
+  <line x1="300" y1="225" x2="300" y2="235" stroke="url(#rose-gold)" stroke-width="4" stroke-linecap="round" />
+  <line x1="300" y1="365" x2="300" y2="375" stroke="url(#rose-gold)" stroke-width="4" stroke-linecap="round" />
+  <line x1="225" y1="300" x2="235" y2="300" stroke="url(#rose-gold)" stroke-width="4" stroke-linecap="round" />
+  <line x1="365" y1="300" x2="375" y2="300" stroke="url(#rose-gold)" stroke-width="4" stroke-linecap="round" />
+  
+  <!-- Hour hand -->
+  <line x1="300" y1="300" x2="330" y2="270" stroke="url(#rose-gold)" stroke-width="6" stroke-linecap="round" />
+  <!-- Minute hand -->
+  <line x1="300" y1="300" x2="270" y2="240" stroke="url(#rose-gold)" stroke-width="4" stroke-linecap="round" />
+  
+  <circle cx="300" cy="300" r="8" fill="url(#rose-gold)" />
+</svg>

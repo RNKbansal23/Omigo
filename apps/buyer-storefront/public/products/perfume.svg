@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 600">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#2a1f35" />
+      <stop offset="100%" stop-color="#140a1c" />
+    </linearGradient>
+    <linearGradient id="glass" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#ffffff" stop-opacity="0.4" />
+      <stop offset="100%" stop-color="#ffffff" stop-opacity="0.1" />
+    </linearGradient>
+    <linearGradient id="liquid" x1="0%" y1="100%" x2="0%" y2="0%">
+      <stop offset="0%" stop-color="#f5a623" />
+      <stop offset="100%" stop-color="#ffdf99" stop-opacity="0.5" />
+    </linearGradient>
+  </defs>
+  <rect width="600" height="600" fill="url(#bg)" />
+  
+  <!-- Bottle Base -->
+  <polygon points="200,450 400,450 430,250 170,250" fill="url(#glass)" />
+  <!-- Liquid -->
+  <polygon points="210,440 390,440 410,290 190,290" fill="url(#liquid)" />
+  
+  <!-- Neck -->
+  <rect x="270" y="180" width="60" height="70" fill="url(#glass)" />
+  <rect x="260" y="190" width="80" height="15" fill="#f5a623" />
+  
+  <!-- Atomizer/Cap -->
+  <polygon points="260,180 340,180 320,120 280,120" fill="url(#glass)" />
+  <circle cx="300" cy="100" r="25" fill="#ffffff" opacity="0.8" />
+  
+  <!-- Label -->
+  <rect x="250" y="320" width="100" height="60" rx="5" fill="#ffffff" opacity="0.9" />
+  <rect x="255" y="325" width="90" height="50" rx="3" fill="none" stroke="#f5a623" stroke-width="2" />
+  
+  <!-- Reflections -->
+  <polygon points="180,260 220,260 240,430 210,430" fill="#ffffff" opacity="0.2" />
+  <polygon points="280,130 290,130 290,170 280,170" fill="#ffffff" opacity="0.3" />
+</svg>

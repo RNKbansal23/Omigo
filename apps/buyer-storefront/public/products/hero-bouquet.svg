@@ -1,0 +1,61 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 500">
+  <defs>
+    <!-- Add drop shadow for depth -->
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="8" stdDeviation="6" flood-color="#000" flood-opacity="0.3" />
+    </filter>
+  </defs>
+
+  <g transform="translate(0, 20)">
+    <!-- Back Leaves -->
+    <path d="M120,200 C80,140 110,60 140,80 C160,100 150,160 160,200 Z" fill="#1b4332" />
+    <path d="M160,200 C150,120 180,40 210,60 C230,80 200,160 200,200 Z" fill="#2d6a4f" />
+    <path d="M220,200 C240,120 280,60 300,90 C310,110 260,160 250,200 Z" fill="#1b4332" />
+    <path d="M260,220 C300,160 340,120 350,150 C360,170 310,200 280,240 Z" fill="#40916c" />
+    <path d="M100,240 C60,180 80,120 100,140 C120,160 130,200 120,240 Z" fill="#40916c" />
+
+    <!-- Orange Top Flower -->
+    <path d="M180,180 C150,120 180,80 210,100 C240,80 270,120 240,180 Z" fill="#f07167" />
+    <path d="M170,150 C140,100 160,70 190,90 C180,120 180,140 180,160 Z" fill="#e0574d" />
+    <path d="M250,150 C280,100 260,70 230,90 C240,120 240,140 240,160 Z" fill="#e0574d" />
+
+    <!-- Yellow Right Flower -->
+    <circle cx="280" cy="160" r="30" fill="#ffd166" />
+    <path d="M280,160 C260,120 290,110 310,140 C320,150 290,170 280,160 Z" fill="#f4b942" />
+    <circle cx="280" cy="160" r="8" fill="#f4a261" />
+
+    <!-- Pink Left Flower -->
+    <circle cx="130" cy="170" r="35" fill="#e56b6f" />
+    <circle cx="130" cy="170" r="10" fill="#ffd166" />
+
+    <!-- Pink Center Flower -->
+    <circle cx="200" cy="210" r="40" fill="#e56b6f" />
+    <path d="M200,210 C170,160 210,150 230,190 C220,200 210,210 200,210 Z" fill="#d05a5e" />
+    <circle cx="200" cy="210" r="12" fill="#ffd166" />
+
+    <!-- Yellow Bottom Flower -->
+    <circle cx="240" cy="260" r="35" fill="#ffd166" />
+    <circle cx="240" cy="260" r="12" fill="#f4a261" />
+
+    <!-- Blue Right Flower -->
+    <path d="M300,250 C360,230 380,280 340,300 C320,310 290,280 300,250 Z" fill="#4ea8de" />
+    <path d="M290,220 C350,180 380,230 330,260 C310,270 280,250 290,220 Z" fill="#48cae4" />
+
+    <!-- Orange Left Flower -->
+    <path d="M120,280 C60,250 50,300 90,320 C110,330 130,300 120,280 Z" fill="#f07167" />
+    <path d="M140,240 C80,200 60,260 110,280 C130,290 150,260 140,240 Z" fill="#e0574d" />
+
+    <!-- Lower Leaves -->
+    <path d="M260,270 L340,350 C320,360 280,310 250,290 Z" fill="#1b4332" />
+    <path d="M140,290 L60,340 C80,360 120,320 150,300 Z" fill="#1b4332" />
+
+    <!-- Wrapper Paper -->
+    <path d="M100,320 L160,450 L240,450 L300,320 L210,330 L180,330 Z" fill="#e29578" />
+    <path d="M180,330 L160,450 L240,450 L210,330 Z" fill="#d08266" />
+    <path d="M240,450 L160,450 L150,480 L250,480 Z" fill="#e29578" />
+
+    <!-- Ribbon Tie -->
+    <path d="M155,450 Q200,460 245,450" fill="none" stroke="#2a9d8f" stroke-width="4" />
+    <path d="M158,455 Q200,465 242,455" fill="none" stroke="#2a9d8f" stroke-width="4" />
+  </g>
+</svg>

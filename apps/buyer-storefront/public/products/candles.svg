@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 600">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#1c1c24" />
+      <stop offset="100%" stop-color="#0c0c12" />
+    </linearGradient>
+    <linearGradient id="glass" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#ffffff" stop-opacity="0.1" />
+      <stop offset="50%" stop-color="#ffffff" stop-opacity="0.3" />
+      <stop offset="100%" stop-color="#ffffff" stop-opacity="0.1" />
+    </linearGradient>
+    <linearGradient id="flame" x1="0%" y1="100%" x2="0%" y2="0%">
+      <stop offset="0%" stop-color="#ff9d00" />
+      <stop offset="50%" stop-color="#ffeb3b" />
+      <stop offset="100%" stop-color="#ffffff" stop-opacity="0" />
+    </linearGradient>
+    <filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="20" result="blur" />
+      <feComposite in="SourceGraphic" in2="blur" operator="over" />
+    </filter>
+  </defs>
+  <rect width="600" height="600" fill="url(#bg)" />
+  
+  <!-- Candle 1 (Tall) -->
+  <rect x="250" y="250" width="100" height="200" rx="10" fill="#e0e0e0" opacity="0.9" />
+  <rect x="250" y="250" width="100" height="200" rx="10" fill="url(#glass)" />
+  <line x1="300" y1="230" x2="300" y2="250" stroke="#333" stroke-width="3" />
+  <path d="M290,230 Q300,190 310,230 Z" fill="url(#flame)" filter="url(#glow)" />
+  
+  <!-- Candle 2 (Short) -->
+  <rect x="140" y="320" width="80" height="130" rx="8" fill="#e0e0e0" opacity="0.9" />
+  <rect x="140" y="320" width="80" height="130" rx="8" fill="url(#glass)" />
+  <line x1="180" y1="300" x2="180" y2="320" stroke="#333" stroke-width="3" />
+  <path d="M172,300 Q180,270 188,300 Z" fill="url(#flame)" filter="url(#glow)" />
+  
+  <!-- Candle 3 (Medium) -->
+  <rect x="380" y="280" width="90" height="170" rx="8" fill="#e0e0e0" opacity="0.9" />
+  <rect x="380" y="280" width="90" height="170" rx="8" fill="url(#glass)" />
+  <line x1="425" y1="260" x2="425" y2="280" stroke="#333" stroke-width="3" />
+  <path d="M417,260 Q425,225 433,260 Z" fill="url(#flame)" filter="url(#glow)" />
+  
+  <ellipse cx="300" cy="460" rx="180" ry="20" fill="#000" opacity="0.3" filter="url(#glow)" />
+</svg>

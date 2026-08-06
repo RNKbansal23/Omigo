@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 600">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#1f2326" />
+      <stop offset="100%" stop-color="#0e1012" />
+    </linearGradient>
+    <linearGradient id="wood" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#d4a373" />
+      <stop offset="50%" stop-color="#faedcd" />
+      <stop offset="100%" stop-color="#ccd5ae" />
+    </linearGradient>
+  </defs>
+  <rect width="600" height="600" fill="url(#bg)" />
+  
+  <!-- Outer Frame -->
+  <rect x="150" y="120" width="300" height="360" rx="5" fill="#8b5e34" stroke="#5c3d22" stroke-width="10" />
+  <rect x="165" y="135" width="270" height="330" fill="url(#wood)" />
+  
+  <!-- Inner Mat -->
+  <rect x="185" y="155" width="230" height="290" fill="#fefae0" />
+  
+  <!-- Photo -->
+  <rect x="210" y="180" width="180" height="220" fill="#e9edc9" />
+  <circle cx="300" cy="270" r="50" fill="#f5a623" opacity="0.8" />
+  <path d="M210,400 L260,330 L300,370 L340,300 L390,400 Z" fill="#606c38" opacity="0.8" />
+  <path d="M210,400 L240,360 L280,400 Z" fill="#283618" opacity="0.6" />
+  
+  <!-- Glass Reflection -->
+  <path d="M165,135 L435,465 L435,135 Z" fill="#ffffff" opacity="0.05" />
+</svg>
