@@ -85,7 +85,7 @@ export default function ShopLayout({ children }: { children: React.ReactNode }) 
                 <Gift size={20} className="text-[#1a1025]" />
               </div>
               <span className="text-xl font-bold gradient-text hidden sm:block">
-                GiftFlow
+                OMIGO
               </span>
             </Link>
 
@@ -237,10 +237,10 @@ export default function ShopLayout({ children }: { children: React.ReactNode }) 
                 <div className="p-2 rounded-xl bg-gradient-to-br from-[#f5a623] to-[#ffd073]">
                   <Gift size={18} className="text-[#1a1025]" />
                 </div>
-                <span className="text-lg font-bold gradient-text">GiftFlow</span>
+                <span className="text-lg font-bold gradient-text">OMIGO</span>
               </Link>
               <p className="text-[#6b5f7a] text-sm leading-relaxed mb-4">
-                Premium gifting & delivery platform. Send joy, deliver happiness.
+                OMIGO: Stories, wrapped in gifts.
               </p>
               {/* Social Icons */}
               <div className="flex items-center gap-3">
@@ -293,11 +293,11 @@ export default function ShopLayout({ children }: { children: React.ReactNode }) 
               <ul className="space-y-3">
                 <li>
                   <a
-                    href="mailto:hello@giftflow.in"
+                    href="mailto:hello@omigo.in"
                     className="flex items-center gap-2 text-[#6b5f7a] text-sm hover:text-[#f5a623] transition-colors"
                   >
                     <Mail size={14} />
-                    hello@giftflow.in
+                    hello@omigo.in
                   </a>
                 </li>
                 <li>
@@ -316,7 +316,7 @@ export default function ShopLayout({ children }: { children: React.ReactNode }) 
           {/* Bottom Bar */}
           <div className="mt-12 pt-6 border-t border-white/5 flex flex-col sm:flex-row items-center justify-between gap-4">
             <p className="text-[#6b5f7a] text-xs">
-              © {new Date().getFullYear()} GiftFlow. All rights reserved.
+              © {new Date().getFullYear()} OMIGO. All rights reserved.
             </p>
             <div className="flex items-center gap-4 text-[#6b5f7a] text-xs">
               <span>Made with ❤️ in India</span>

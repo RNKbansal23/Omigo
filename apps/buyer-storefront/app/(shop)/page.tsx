@@ -46,7 +46,7 @@ const features = [
   {
     icon: Truck,
     title: 'Express Delivery',
-    description: 'Same-day delivery available in 100+ cities across India',
+    description: 'Delivered fast, felt forever',
     accent: 'from-blue-500 to-cyan-400',
   },
   {
@@ -64,7 +64,7 @@ const features = [
 ];
 
 function useCountdown() {
-  const DEADLINE_KEY = 'giftflow_promo_deadline';
+  const DEADLINE_KEY = 'omigo_promo_deadline';
 
   const getDeadline = () => {
     if (typeof window === 'undefined') return Date.now() + 12 * 24 * 60 * 60 * 1000;
@@ -111,7 +111,7 @@ export default function HomePage() {
   return (
     <div className="overflow-hidden">
       {/* ===== HERO SECTION ===== */}
-      <section className="relative min-h-[85vh] flex items-center gradient-hero overflow-hidden">
+      <section className="relative min-h-[85vh] flex items-center bg-gradient-to-br from-indigo-900/80 via-purple-900/60 to-[#1a1025] overflow-hidden">
         {/* Decorative Elements */}
         <div className="absolute inset-0 overflow-hidden pointer-events-none">
           <div className="absolute top-20 left-10 w-72 h-72 bg-[#7c3aed]/10 rounded-full blur-3xl animate-float" />
@@ -147,9 +147,9 @@ export default function HomePage() {
             </div>
 
             <h1 className="text-4xl sm:text-5xl md:text-7xl font-bold mb-6 leading-tight animate-slide-up">
-              Send Joy,
+              OMIGO: Stories,
               <br />
-              <span className="gradient-text">Deliver Happiness</span>
+              <span className="gradient-text">wrapped in gifts.</span>
             </h1>
 
             <p className="text-lg sm:text-xl text-[#a89bb5] mb-8 max-w-xl leading-relaxed animate-slide-up delay-200">
@@ -203,7 +203,7 @@ export default function HomePage() {
             Shop by <span className="gradient-text">Occasion</span>
           </h2>
           <p className="text-[#a89bb5] text-base max-w-md mx-auto">
-            Find the perfect gift for every special moment in life
+            Every occasion deserves a story worth wrapping.
           </p>
         </div>
 
@@ -284,7 +284,7 @@ export default function HomePage() {
                 LIMITED TIME OFFER
               </div>
               <h3 className="text-2xl md:text-3xl font-bold text-white mb-2">
-                Get 20% Off Your First Order
+                Get 20% Off Your First OMIGO
               </h3>
               <p className="text-white/70 text-sm md:text-base">
                 Use code <span className="font-bold text-white bg-white/10 px-2 py-0.5 rounded">GIFT20</span> at checkout
@@ -311,10 +311,10 @@ export default function HomePage() {
       <section className="py-16 md:py-24 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
         <div className="text-center mb-12">
           <h2 className="text-3xl md:text-4xl font-bold mb-3">
-            Why Choose <span className="gradient-text">GiftFlow</span>
+            Why Choose <span className="gradient-text">OMIGO</span>
           </h2>
           <p className="text-[#a89bb5] text-base max-w-md mx-auto">
-            We go the extra mile to make your gifting experience seamless
+            We go the extra mile to make every gift feel personal
           </p>
         </div>
 
