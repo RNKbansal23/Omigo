@@ -23,12 +23,19 @@ import ProductCard from '@/components/shop/ProductCard';
 import Button from '@/components/shop/Button';
 
 const categories = [
-  { name: 'Birthday', icon: Cake, color: 'from-pink-500/20 to-pink-600/5', iconColor: 'text-pink-400' },
-  { name: 'Anniversary', icon: Heart, color: 'from-red-500/20 to-red-600/5', iconColor: 'text-red-400' },
-  { name: 'Wedding', icon: Crown, color: 'from-amber-500/20 to-amber-600/5', iconColor: 'text-amber-400' },
-  { name: 'Festival', icon: PartyPopper, color: 'from-purple-500/20 to-purple-600/5', iconColor: 'text-purple-400' },
-  { name: 'Corporate', icon: Building2, color: 'from-blue-500/20 to-blue-600/5', iconColor: 'text-blue-400' },
-  { name: 'Custom', icon: Palette, color: 'from-emerald-500/20 to-emerald-600/5', iconColor: 'text-emerald-400' },
+  { name: 'Birthday', icon: Cake, color: 'from-pink-400 to-rose-400', shadow: 'shadow-pink-500/30' },
+  { name: 'Anniversary', icon: Heart, color: 'from-red-400 to-rose-500', shadow: 'shadow-red-500/30' },
+  { name: 'Wedding', icon: Crown, color: 'from-amber-300 to-orange-400', shadow: 'shadow-amber-500/30' },
+  { name: 'Festival', icon: PartyPopper, color: 'from-purple-400 to-fuchsia-500', shadow: 'shadow-purple-500/30' },
+  { name: 'Corporate', icon: Building2, color: 'from-blue-400 to-cyan-500', shadow: 'shadow-blue-500/30' },
+  { name: 'Custom', icon: Palette, color: 'from-emerald-400 to-teal-500', shadow: 'shadow-emerald-500/30' },
+  // Duplicate for seamless infinite marquee effect
+  { name: 'Birthday ', icon: Cake, color: 'from-pink-400 to-rose-400', shadow: 'shadow-pink-500/30' },
+  { name: 'Anniversary ', icon: Heart, color: 'from-red-400 to-rose-500', shadow: 'shadow-red-500/30' },
+  { name: 'Wedding ', icon: Crown, color: 'from-amber-300 to-orange-400', shadow: 'shadow-amber-500/30' },
+  { name: 'Festival ', icon: PartyPopper, color: 'from-purple-400 to-fuchsia-500', shadow: 'shadow-purple-500/30' },
+  { name: 'Corporate ', icon: Building2, color: 'from-blue-400 to-cyan-500', shadow: 'shadow-blue-500/30' },
+  { name: 'Custom ', icon: Palette, color: 'from-emerald-400 to-teal-500', shadow: 'shadow-emerald-500/30' },
 ];
 
 const trendingProducts = [
@@ -120,7 +127,7 @@ export default function HomePage() {
         }}
       >
         {/* Dark overlay for text readability */}
-        <div className="absolute inset-0 bg-black/40 bg-gradient-to-r from-[#1a1025]/90 via-[#1a1025]/60 to-transparent pointer-events-none" />
+        <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/40 to-transparent pointer-events-none" />
 
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
           <div className="max-w-3xl">
@@ -190,31 +197,44 @@ export default function HomePage() {
           </p>
         </div>
 
-        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-4">
-          {categories.map((cat, index) => {
-            const Icon = cat.icon;
-            return (
-              <Link
-                key={cat.name}
-                href={`/products?category=${cat.name.toLowerCase()}`}
-                className="group"
-              >
-                <div
-                  className="glass-card p-6 text-center hover-lift cursor-pointer animate-fade-in"
-                  style={{ animationDelay: `${index * 80}ms` }}
+        <style>{`
+          @keyframes marquee {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(calc(-50% - 0.75rem)); }
+          }
+          .animate-marquee {
+            animation: marquee 25s linear infinite;
+          }
+          .animate-marquee:hover {
+            animation-play-state: paused;
+          }
+        `}</style>
+        
+        <div className="relative flex overflow-hidden group py-4 -mx-4 px-4 sm:mx-0 sm:px-0 [mask-image:linear-gradient(to_right,transparent,black_10%,black_90%,transparent)]">
+          <div className="flex gap-6 animate-marquee whitespace-nowrap min-w-max">
+            {categories.map((cat, index) => {
+              const Icon = cat.icon;
+              return (
+                <Link
+                  key={`${cat.name}-${index}`}
+                  href={`/products?category=${cat.name.trim().toLowerCase()}`}
+                  className="group/card flex-shrink-0"
                 >
-                  <div
-                    className={`w-14 h-14 mx-auto mb-3 rounded-2xl bg-gradient-to-br ${cat.color} flex items-center justify-center group-hover:scale-110 transition-transform duration-300`}
-                  >
-                    <Icon size={24} className={cat.iconColor} />
+                  <div className={`relative w-48 h-56 rounded-3xl bg-gradient-to-br ${cat.color} p-6 flex flex-col items-center justify-center text-white overflow-hidden transition-all duration-300 hover:scale-105 shadow-lg ${cat.shadow} hover:shadow-2xl`}>
+                    {/* SVG Background Pattern or Big faded icon */}
+                    <Icon size={120} className="absolute -bottom-6 -right-6 text-white opacity-20 group-hover/card:scale-110 transition-transform duration-500" />
+                    
+                    <div className="bg-white/20 backdrop-blur-md p-4 rounded-2xl mb-4 group-hover/card:bg-white/30 transition-colors">
+                      <Icon size={32} className="text-white" />
+                    </div>
+                    <h3 className="text-white text-lg font-bold tracking-wide">
+                      {cat.name.trim()}
+                    </h3>
                   </div>
-                  <h3 className="text-white text-sm font-semibold group-hover:text-[#f5a623] transition-colors">
-                    {cat.name}
-                  </h3>
-                </div>
-              </Link>
-            );
-          })}
+                </Link>
+              );
+            })}
+          </div>
         </div>
       </section>
 
