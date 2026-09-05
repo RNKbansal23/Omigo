@@ -272,12 +272,11 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* ===== PROMO BANNER ===== */}
-      <section className="py-8 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
-        <div className="relative overflow-hidden rounded-3xl bg-gradient-to-r from-[#7c3aed] via-[#9333ea] to-[#c026d3] p-8 md:p-12">
+      <section className="py-16 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
+        <div className="relative overflow-hidden rounded-3xl bg-gradient-to-br from-[#f5a623] via-[#f97316] to-[#ec4899] shadow-2xl shadow-orange-500/20 p-8 md:p-12">
           <div className="absolute inset-0 overflow-hidden pointer-events-none">
-            <div className="absolute -top-20 -right-20 w-60 h-60 bg-white/5 rounded-full" />
-            <div className="absolute -bottom-10 -left-10 w-40 h-40 bg-white/5 rounded-full" />
+            <Gift size={300} className="absolute -bottom-16 -right-10 text-white opacity-10 rotate-12" />
+            <Sparkles size={150} className="absolute -top-10 -left-10 text-white opacity-10" />
           </div>
 
           <div className="relative flex flex-col md:flex-row items-center justify-between gap-6">
@@ -327,18 +326,21 @@ export default function HomePage() {
             return (
               <div
                 key={feature.title}
-                className="glass-card p-8 text-center hover-lift animate-fade-in"
+                className="relative glass-card p-8 text-center hover-lift animate-fade-in overflow-hidden group"
                 style={{ animationDelay: `${index * 150}ms` }}
               >
+                {/* Aesthetic SVG Watermark */}
+                <Icon size={160} className="absolute -bottom-10 -right-10 text-white opacity-5 group-hover:scale-110 transition-transform duration-500" />
+                
                 <div
-                  className={`w-16 h-16 mx-auto mb-5 rounded-2xl bg-gradient-to-br ${feature.accent} flex items-center justify-center opacity-90`}
+                  className={`relative z-10 w-16 h-16 mx-auto mb-5 rounded-2xl bg-gradient-to-br ${feature.accent} flex items-center justify-center shadow-lg shadow-black/20`}
                 >
                   <Icon size={28} className="text-white" />
                 </div>
-                <h3 className="text-white font-bold text-lg mb-2">
+                <h3 className="relative z-10 text-white font-bold text-lg mb-2">
                   {feature.title}
                 </h3>
-                <p className="text-[#a89bb5] text-sm leading-relaxed">
+                <p className="relative z-10 text-[#a89bb5] text-sm leading-relaxed">
                   {feature.description}
                 </p>
               </div>
@@ -347,28 +349,33 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* ===== NEWSLETTER ===== */}
-      <section className="py-16 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
-        <div className="glass-card p-8 md:p-12 text-center">
-          <div className="flex items-center justify-center gap-1 mb-4">
-            <Clock size={16} className="text-[#f5a623]" />
-            <span className="text-[#f5a623] text-sm font-medium">Stay Updated</span>
-          </div>
-          <h3 className="text-2xl md:text-3xl font-bold mb-2">
-            Never Miss a <span className="gradient-text">Perfect Gift</span>
-          </h3>
-          <p className="text-[#a89bb5] text-sm mb-6 max-w-md mx-auto">
-            Subscribe to get exclusive offers, new arrivals, and gifting inspiration
-          </p>
-          <div className="flex flex-col sm:flex-row items-center gap-3 max-w-md mx-auto">
-            <input
-              type="email"
-              placeholder="Enter your email"
-              className="w-full px-5 py-3 rounded-xl glass-input text-sm"
-            />
-            <Button variant="primary" size="md" className="w-full sm:w-auto whitespace-nowrap">
-              Subscribe
-            </Button>
+      <section className="py-16 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto mb-16">
+        <div className="relative overflow-hidden rounded-3xl bg-gradient-to-br from-[#2d1b42] to-[#1a1025] border border-white/10 p-8 md:p-16 text-center shadow-2xl shadow-purple-900/20 group">
+          {/* Decorative watermarks */}
+          <Sparkles size={250} className="absolute -top-20 -left-10 text-white opacity-[0.03] rotate-12 group-hover:rotate-45 transition-transform duration-700" />
+          <Heart size={250} className="absolute -bottom-20 -right-10 text-white opacity-[0.03] -rotate-12 group-hover:scale-110 transition-transform duration-700" />
+          
+          <div className="relative z-10 flex flex-col items-center">
+            <div className="flex items-center justify-center gap-1 mb-4">
+              <Clock size={16} className="text-[#f5a623]" />
+              <span className="text-[#f5a623] text-sm font-medium">Stay Updated</span>
+            </div>
+            <h3 className="text-2xl md:text-3xl font-bold mb-2">
+              Never Miss a <span className="gradient-text">Perfect Gift</span>
+            </h3>
+            <p className="text-[#a89bb5] text-sm mb-8 max-w-md mx-auto">
+              Subscribe to get exclusive offers, new arrivals, and gifting inspiration
+            </p>
+            <div className="flex flex-col sm:flex-row items-center gap-3 w-full max-w-md mx-auto">
+              <input
+                type="email"
+                placeholder="Enter your email"
+                className="w-full px-5 py-3.5 rounded-xl glass-input text-sm focus:border-[#f5a623]/50 transition-colors"
+              />
+              <Button variant="primary" size="lg" className="w-full sm:w-auto whitespace-nowrap shadow-lg shadow-[#f5a623]/20">
+                Subscribe
+              </Button>
+            </div>
           </div>
         </div>
       </section>
