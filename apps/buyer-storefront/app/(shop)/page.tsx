@@ -23,19 +23,19 @@ import ProductCard from '@/components/shop/ProductCard';
 import Button from '@/components/shop/Button';
 
 const categories = [
-  { name: 'Birthday', icon: Cake, color: 'from-pink-400 to-rose-400', shadow: 'shadow-pink-500/30' },
-  { name: 'Anniversary', icon: Heart, color: 'from-red-400 to-rose-500', shadow: 'shadow-red-500/30' },
-  { name: 'Wedding', icon: Crown, color: 'from-amber-300 to-orange-400', shadow: 'shadow-amber-500/30' },
-  { name: 'Festival', icon: PartyPopper, color: 'from-purple-400 to-fuchsia-500', shadow: 'shadow-purple-500/30' },
-  { name: 'Corporate', icon: Building2, color: 'from-blue-400 to-cyan-500', shadow: 'shadow-blue-500/30' },
-  { name: 'Custom', icon: Palette, color: 'from-emerald-400 to-teal-500', shadow: 'shadow-emerald-500/30' },
+  { name: 'Wedding', icon: Crown, image: '/images/wedding.jpg', gradient: 'from-[#ffebd9] via-[#ffebd9]', textColor: 'text-[#4a3b32]', iconColor: 'text-[#4a3b32]', iconBg: 'bg-white/40', shadow: 'shadow-orange-100/30' },
+  { name: 'Festival', icon: PartyPopper, image: '/images/festival.jpg', gradient: 'from-[#8b5cf6] via-[#8b5cf6]', textColor: 'text-white', iconColor: 'text-white', iconBg: 'bg-white/20', shadow: 'shadow-purple-500/30' },
+  { name: 'Corporate', icon: Building2, image: '/images/corporate.jpg', gradient: 'from-[#0f766e] via-[#0f766e]', textColor: 'text-white', iconColor: 'text-white', iconBg: 'bg-white/20', shadow: 'shadow-teal-500/30' },
+  { name: 'Birthday', icon: Cake, image: '/images/birthday.jpg', gradient: 'from-[#fb923c] via-[#fb923c]', textColor: 'text-white', iconColor: 'text-white', iconBg: 'bg-white/20', shadow: 'shadow-orange-500/30' },
+  { name: 'Anniversary', icon: Heart, image: '/images/anniversary.jpg', gradient: 'from-[#be123c] via-[#be123c]', textColor: 'text-white', iconColor: 'text-white', iconBg: 'bg-white/20', shadow: 'shadow-rose-500/30' },
+  { name: 'Custom', icon: Palette, image: '/images/custom.jpg', gradient: 'from-[#6ee7b7] via-[#6ee7b7]', textColor: 'text-[#134e4a]', iconColor: 'text-[#134e4a]', iconBg: 'bg-white/40', shadow: 'shadow-emerald-500/30' },
   // Duplicate for seamless infinite marquee effect
-  { name: 'Birthday ', icon: Cake, color: 'from-pink-400 to-rose-400', shadow: 'shadow-pink-500/30' },
-  { name: 'Anniversary ', icon: Heart, color: 'from-red-400 to-rose-500', shadow: 'shadow-red-500/30' },
-  { name: 'Wedding ', icon: Crown, color: 'from-amber-300 to-orange-400', shadow: 'shadow-amber-500/30' },
-  { name: 'Festival ', icon: PartyPopper, color: 'from-purple-400 to-fuchsia-500', shadow: 'shadow-purple-500/30' },
-  { name: 'Corporate ', icon: Building2, color: 'from-blue-400 to-cyan-500', shadow: 'shadow-blue-500/30' },
-  { name: 'Custom ', icon: Palette, color: 'from-emerald-400 to-teal-500', shadow: 'shadow-emerald-500/30' },
+  { name: 'Wedding ', icon: Crown, image: '/images/wedding.jpg', gradient: 'from-[#ffebd9] via-[#ffebd9]', textColor: 'text-[#4a3b32]', iconColor: 'text-[#4a3b32]', iconBg: 'bg-white/40', shadow: 'shadow-orange-100/30' },
+  { name: 'Festival ', icon: PartyPopper, image: '/images/festival.jpg', gradient: 'from-[#8b5cf6] via-[#8b5cf6]', textColor: 'text-white', iconColor: 'text-white', iconBg: 'bg-white/20', shadow: 'shadow-purple-500/30' },
+  { name: 'Corporate ', icon: Building2, image: '/images/corporate.jpg', gradient: 'from-[#0f766e] via-[#0f766e]', textColor: 'text-white', iconColor: 'text-white', iconBg: 'bg-white/20', shadow: 'shadow-teal-500/30' },
+  { name: 'Birthday ', icon: Cake, image: '/images/birthday.jpg', gradient: 'from-[#fb923c] via-[#fb923c]', textColor: 'text-white', iconColor: 'text-white', iconBg: 'bg-white/20', shadow: 'shadow-orange-500/30' },
+  { name: 'Anniversary ', icon: Heart, image: '/images/anniversary.jpg', gradient: 'from-[#be123c] via-[#be123c]', textColor: 'text-white', iconColor: 'text-white', iconBg: 'bg-white/20', shadow: 'shadow-rose-500/30' },
+  { name: 'Custom ', icon: Palette, image: '/images/custom.jpg', gradient: 'from-[#6ee7b7] via-[#6ee7b7]', textColor: 'text-[#134e4a]', iconColor: 'text-[#134e4a]', iconBg: 'bg-white/40', shadow: 'shadow-emerald-500/30' },
 ];
 
 const trendingProducts = [
@@ -220,16 +220,28 @@ export default function HomePage() {
                   href={`/products?category=${cat.name.trim().toLowerCase()}`}
                   className="group/card flex-shrink-0"
                 >
-                  <div className={`relative w-48 h-56 rounded-3xl bg-gradient-to-br ${cat.color} p-6 flex flex-col items-center justify-center text-white overflow-hidden transition-all duration-300 hover:scale-105 shadow-lg ${cat.shadow} hover:shadow-2xl`}>
-                    {/* SVG Background Pattern or Big faded icon */}
-                    <Icon size={120} className="absolute -bottom-6 -right-6 text-white opacity-20 group-hover/card:scale-110 transition-transform duration-500" />
+                  <div className={`relative w-64 h-[400px] rounded-[2rem] bg-gray-900 flex flex-col items-center justify-end overflow-hidden transition-all duration-300 hover:-translate-y-2 shadow-lg ${cat.shadow} hover:shadow-2xl`}>
+                    {/* Background Image (Top section) */}
+                    <div 
+                      className="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover/card:scale-110" 
+                      style={{ backgroundImage: `url('${cat.image}')` }}
+                    />
                     
-                    <div className="bg-white/20 backdrop-blur-md p-4 rounded-2xl mb-4 group-hover/card:bg-white/30 transition-colors">
-                      <Icon size={32} className="text-white" />
+                    {/* Solid Gradient Overlay from bottom */}
+                    <div className={`absolute inset-0 bg-gradient-to-t ${cat.gradient} via-30% to-transparent`} />
+
+                    {/* SVG Watermark */}
+                    <Icon size={180} className={`absolute -bottom-10 -right-10 opacity-10 ${cat.textColor} group-hover/card:scale-110 transition-transform duration-700`} />
+                    
+                    {/* Content */}
+                    <div className="relative z-10 flex flex-col items-center mt-auto w-full p-6">
+                      <div className={`${cat.iconBg} backdrop-blur-sm p-4 rounded-[1.2rem] mb-4 shadow-sm group-hover/card:scale-110 transition-transform duration-500`}>
+                        <Icon size={28} className={cat.iconColor} strokeWidth={1.5} />
+                      </div>
+                      <h3 className={`${cat.textColor} text-xl font-bold tracking-wide`}>
+                        {cat.name.trim()}
+                      </h3>
                     </div>
-                    <h3 className="text-white text-lg font-bold tracking-wide">
-                      {cat.name.trim()}
-                    </h3>
                   </div>
                 </Link>
               );
