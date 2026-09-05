@@ -111,33 +111,16 @@ export default function HomePage() {
   return (
     <div className="overflow-hidden">
       {/* ===== HERO SECTION ===== */}
-      <section className="relative min-h-[85vh] flex items-center bg-gradient-to-br from-indigo-900/80 via-purple-900/60 to-[#1a1025] overflow-hidden">
-        {/* Decorative Elements */}
-        <div className="absolute inset-0 overflow-hidden pointer-events-none">
-          <div className="absolute top-20 left-10 w-72 h-72 bg-[#7c3aed]/10 rounded-full blur-3xl animate-float" />
-          <div className="absolute bottom-20 right-10 w-96 h-96 bg-[#f5a623]/5 rounded-full blur-3xl animate-float delay-200" />
-          <div className="absolute top-40 right-20 w-48 h-48 bg-[#ec4899]/5 rounded-full blur-3xl animate-float delay-400" />
-          
-          {/* Floating SVG icons scattered */}
-          <div className="absolute top-[15%] left-[10%] animate-float-slow delay-100 opacity-40 z-10">
-            <Gift size={60} className="text-[#f5a623]" style={{ filter: 'drop-shadow(0 10px 15px rgba(245,166,35,0.3))' }} />
-          </div>
-          <div className="absolute top-[30%] right-[15%] animate-float delay-300 opacity-30 z-10">
-            <Sparkles size={50} className="text-[#7c3aed]" style={{ filter: 'drop-shadow(0 10px 15px rgba(124,58,237,0.3))' }} />
-          </div>
-          <div className="absolute bottom-[20%] left-[20%] animate-float-reverse delay-500 opacity-30 z-10">
-            <Star size={45} className="text-[#ec4899]" style={{ filter: 'drop-shadow(0 10px 15px rgba(236,72,153,0.3))' }} />
-          </div>
-          <div className="absolute top-[10%] right-[30%] animate-float-reverse delay-700 opacity-20 z-10">
-            <Gift size={35} className="text-[#f5a623]" style={{ filter: 'drop-shadow(0 10px 15px rgba(245,166,35,0.3))' }} />
-          </div>
-          <div className="absolute bottom-[10%] left-[40%] animate-float delay-200 opacity-20 z-10">
-            <Sparkles size={30} className="text-[#7c3aed]" style={{ filter: 'drop-shadow(0 10px 15px rgba(124,58,237,0.3))' }} />
-          </div>
-          <div className="absolute top-[40%] left-[5%] animate-float-slow delay-400 opacity-15 z-10">
-            <Star size={25} className="text-[#ec4899]" style={{ filter: 'drop-shadow(0 10px 15px rgba(236,72,153,0.3))' }} />
-          </div>
-        </div>
+      <section 
+        className="relative min-h-[85vh] flex items-center overflow-hidden"
+        style={{
+          backgroundImage: "url('/hero-bg.jpg')",
+          backgroundSize: 'cover',
+          backgroundPosition: 'center',
+        }}
+      >
+        {/* Dark overlay for text readability */}
+        <div className="absolute inset-0 bg-black/40 bg-gradient-to-r from-[#1a1025]/90 via-[#1a1025]/60 to-transparent pointer-events-none" />
 
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
           <div className="max-w-3xl">
